@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(name='dsnd_distribution_yuki',
-        version=0.3,
+        version=0.4,
         description="Gaussian Distribusion",
         packages=['dsnd_distribution_yuki'],
         author='Yuki',

@@ -1,7 +1,10 @@
 from setuptools import setup
 
-setup(name='distributions',
-        version=0.1,
+setup(name='dsnd_distribution_yuki',
+        version=0.4,
         description="Gaussian Distribusion",
-        package=['distributions'],
+        packages=['dsnd_distribution_yuki'],
+        author='Yuki',
+        author_email='uk.12juni@gmail.com',
+        url='https://example.com',
         zip_safe=False)

@@ -146,7 +146,7 @@ def return_figures():
           mode = 'markers',
           text = text,
           name = country,
-          textposition = 'top'
+          textposition = 'top right'
           )
       )
 
@@ -164,6 +164,25 @@ def return_figures():
     # TODO: once the data is clean, make a list called graph_five and append the plotly graph to this list.
     
     # TODO: fill a layout variable for the fifth visualization
+
+    # Fifth chart shows rural population.
+    graph_five = []
+    df = cleandata('data/API_SP.RUR.TOTL_DS2_en_csv_v2_9914824.csv')
+    df.columns = ['country', 'year', 'population']
+    df.sort_values('population', ascending=False, inplace=True)
+
+    df = df[df['year'] == 2015]
+    graph_five.append(
+      go.Bar(
+        x = df.country.tolist(),
+        y = df.population.tolist(),
+      )
+    )
+
+    layout_five = dict(title = 'Rural population in 2015',
+              xaxis = dict(title='Country'),
+              yaxis = dict(title='Population')
+    )
     
     # append all charts to the figures list
     figures = []
@@ -173,5 +192,6 @@ def return_figures():
     figures.append(dict(data=graph_four, layout=layout_four))
     
     # TODO: append the figure five information to the figures list
+    figures.append(dict(data=graph_five, layout=layout_five))
     
     return figures
